@@ -73,13 +73,13 @@ const Projects = () => {
       initial={{ opacity: 0, y: 50 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.8, delay: index * 0.2 }}
-      className={`project-card ${featured ? 'lg:col-span-2' : ''}`}
+      className={`project-card group ${featured ? 'lg:col-span-2' : ''}`}
     >
       <div className="relative overflow-hidden rounded-lg mb-6">
         <img
           src={project.image}
           alt={project.title}
-          className="project-image w-full h-48 object-cover"
+          className="project-image w-full h-48 object-cover group-hover:scale-105"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
         

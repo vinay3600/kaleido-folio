@@ -218,11 +218,11 @@
   
   /* Project Cards */
   .project-card {
-    @apply portfolio-card group cursor-pointer;
+    @apply portfolio-card cursor-pointer;
   }
   
   .project-card .project-image {
-    @apply transition-transform duration-500 group-hover:scale-105;
+    @apply transition-transform duration-500;
   }
   
   /* Navigation */
