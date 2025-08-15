@@ -28,7 +28,7 @@ const Footer = () => {
               Full-stack developer passionate about creating amazing web experiences.
               Let's build something great together!
             </p>
-            
+
             {/* Social Links */}
             <div className="flex gap-4">
               <Button variant="ghost" size="sm" className="p-2 hover:scale-110 transition-transform">
@@ -83,15 +83,19 @@ const Footer = () => {
               Get in Touch
             </h4>
             <div className="space-y-2 text-muted-foreground">
-              <p>New York, USA</p>
-              <p>your.email@example.com</p>
-              <p>+1 (555) 123-4567</p>
+              <p>Hyderabad, India</p>
+              <p>kumarvinay30897@gmail.com</p>
+              <p>+91 9701931360</p>
             </div>
-            
-            <Button className="btn-gradient mt-4">
+
+            <Button
+              className="btn-gradient mt-4"
+              onClick={() => window.location.href = 'mailto:kumarvinay30897@gmail.com'}
+            >
               Hire Me
             </Button>
           </motion.div>
+
         </div>
 
         {/* Divider */}

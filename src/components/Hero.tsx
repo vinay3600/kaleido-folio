@@ -15,7 +15,7 @@ const Hero = () => {
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
       {/* Background Gradient */}
       <div className="absolute inset-0 gradient-subtle-bg" />
-      
+
       {/* Floating Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
@@ -33,7 +33,7 @@ const Hero = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
           {/* Text Content */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -66,13 +66,13 @@ const Hero = () => {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8"
             >
-              <Button 
+              <Button
                 onClick={() => scrollToSection('projects')}
                 className="btn-gradient text-lg px-8 py-6"
               >
                 View My Work
               </Button>
-              <Button 
+              <Button
                 onClick={() => scrollToSection('contact')}
                 variant="outline"
                 className="btn-outline-glow text-lg px-8 py-6"
@@ -108,22 +108,24 @@ const Hero = () => {
             className="flex-1 max-w-md"
           >
             <div className="relative">
-              <motion.div 
+              <motion.div
                 animate={{ rotate: 360 }}
                 transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
                 className="absolute inset-0 rounded-full bg-gradient-to-r from-primary to-secondary p-1"
               >
                 <div className="w-full h-full rounded-full bg-background" />
               </motion.div>
-              
-              <motion.img
-                src={profileImage}
-                alt="Professional Developer"
-                className="relative z-10 w-full h-full object-cover rounded-full"
-                animate={{ y: [0, -10, 0] }}
-                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-              />
-              
+
+              <div className="aspect-square">
+                <motion.img
+                  src={profileImage}
+                  alt="Professional Developer"
+                  className="relative z-10 w-full h-full object-cover rounded-full"
+                  animate={{ y: [0, -10, 0] }}
+                  transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                />
+              </div>
+
               {/* Glow Effect */}
               <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary/20 to-secondary/20 blur-2xl -z-10" />
             </div>

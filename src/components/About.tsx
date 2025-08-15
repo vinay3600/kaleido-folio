@@ -9,28 +9,25 @@ const About = () => {
 
   const timeline = [
     {
-      type: 'education',
-      title: 'Bachelor of Computer Science',
-      institution: 'University of Technology',
-      period: '2019 - 2023',
-      description: 'Specialized in Software Engineering and Web Development. Graduated with honors.',
+      type: 'Graduation',
+      title: 'Bachelor of Information Technology',
+      institution: 'Institute of Aeronautical Engineering',
+      period: '2021 - 2025',
       icon: GraduationCap
     },
     {
       type: 'experience',
-      title: 'Full Stack Developer',
-      institution: 'Tech Solutions Inc.',
-      period: '2023 - Present',
-      description: 'Developing scalable web applications using MERN stack. Led multiple projects from concept to deployment.',
-      icon: Briefcase
+      title: 'Intermediate',
+      institution: 'MJP college',
+      period: '2019-2021',
+      icon: GraduationCap
     },
     {
       type: 'experience',
-      title: 'Frontend Developer Intern',
-      institution: 'Digital Agency Co.',
-      period: '2022 - 2023',
-      description: 'Built responsive websites and collaborated with design teams to create stunning user interfaces.',
-      icon: Briefcase
+      title: 'Schooling',
+      institution: 'Sage School',
+      period: '-2019',
+      icon: GraduationCap
     },
   ];
 
@@ -65,18 +62,7 @@ const About = () => {
               </h3>
               <div className="space-y-4 text-muted-foreground">
                 <p>
-                  I'm a passionate full-stack developer with expertise in modern web technologies. 
-                  My journey began during university where I discovered my love for creating 
-                  digital solutions that solve real-world problems.
-                </p>
-                <p>
-                  With experience in both frontend and backend development, I enjoy building 
-                  complete web applications from scratch. I'm particularly passionate about 
-                  creating intuitive user interfaces and scalable backend architectures.
-                </p>
-                <p>
-                  When I'm not coding, you can find me exploring new technologies, contributing 
-                  to open-source projects, or sharing my knowledge with the developer community.
+                  Full Stack Developer (MERN) with strong problem-solving skills, having solved 200+ problems on LeetCode. Experienced in building end-to-end applications like an AI Resume Generator, DineDirect, and QuickChat. Certified by Meta, AWS, Microsoft, and LinkedIn. Passionate about creating scalable solutions and currently deepening expertise in data structures and algorithmic thinking.
                 </p>
               </div>
             </div>
@@ -87,11 +73,11 @@ const About = () => {
               <div className="grid grid-cols-2 gap-4">
                 <div className="flex items-center gap-2">
                   <MapPin className="w-4 h-4 text-primary" />
-                  <span className="text-sm text-muted-foreground">New York, USA</span>
+                  <span className="text-sm text-muted-foreground">Hyderabad, India</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <Calendar className="w-4 h-4 text-primary" />
-                  <span className="text-sm text-muted-foreground">2+ Years Experience</span>
+                  <span className="text-sm text-muted-foreground">2025 Graduation</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <Briefcase className="w-4 h-4 text-primary" />
@@ -99,7 +85,7 @@ const About = () => {
                 </div>
                 <div className="flex items-center gap-2">
                   <GraduationCap className="w-4 h-4 text-primary" />
-                  <span className="text-sm text-muted-foreground">CS Graduate</span>
+                  <span className="text-sm text-muted-foreground">IT Graduate</span>
                 </div>
               </div>
             </div>

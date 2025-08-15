@@ -1,11 +1,12 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
-import { Mail, Phone, MapPin, Github, Linkedin, Twitter, Send } from 'lucide-react';
+import { Mail, Phone, MapPin, Github, Linkedin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
+import emailjs from 'emailjs-com';
 
 const Contact = () => {
   const ref = useRef(null);
@@ -20,45 +21,63 @@ const Contact = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleInputChange = (e) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
     });
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    setTimeout(() => {
+    emailjs.send(
+      "service_t2wc1v5", // Service ID
+      "template_rhlw7zt", // Template ID
+      {
+        from_name: formData.name,
+        from_email: formData.email,
+        subject: formData.subject,
+        message: formData.message,
+      },
+      "WkX3iD2K1QxeSl_Bn" // Public Key
+    )
+    .then(() => {
       toast({
         title: "Message sent successfully!",
         description: "Thank you for reaching out. I'll get back to you soon.",
       });
       setFormData({ name: '', email: '', subject: '', message: '' });
       setIsSubmitting(false);
-    }, 2000);
+    })
+    .catch(() => {
+      toast({
+        title: "Something went wrong.",
+        description: "Please try again later.",
+        variant: "destructive",
+      });
+      setIsSubmitting(false);
+    });
   };
 
   const contactInfo = [
     {
       icon: Mail,
       title: 'Email',
-      details: 'your.email@example.com',
-      link: 'mailto:your.email@example.com'
+      details: 'kumarvinay30897@gmail.com',
+      link: 'mailto:kumarvinay30897@gmail.com'
     },
     {
       icon: Phone,
       title: 'Phone',
-      details: '+1 (555) 123-4567',
-      link: 'tel:+15551234567'
+      details: '+91 9701931360',
+      link: 'tel:+919701931360'
     },
     {
       icon: MapPin,
       title: 'Location',
-      details: 'New York, USA',
+      details: 'Hyderabad, India',
       link: '#'
     }
   ];
@@ -67,25 +86,19 @@ const Contact = () => {
     {
       icon: Github,
       name: 'GitHub',
-      url: 'https://github.com',
+      url: 'https://github.com/vinay3600',
       color: 'hover:text-gray-900 dark:hover:text-gray-100'
     },
     {
       icon: Linkedin,
       name: 'LinkedIn',
-      url: 'https://linkedin.com',
+      url: 'https://www.linkedin.com/in/vinay-kumar-5ba78a282',
       color: 'hover:text-blue-600'
-    },
-    {
-      icon: Twitter,
-      name: 'Twitter',
-      url: 'https://twitter.com',
-      color: 'hover:text-blue-400'
     },
     {
       icon: Mail,
       name: 'Email',
-      url: 'mailto:your.email@example.com',
+      url: 'mailto:kumarvinay30897@gmail.com',
       color: 'hover:text-red-500'
     }
   ];
@@ -93,6 +106,7 @@ const Contact = () => {
   return (
     <section id="contact" className="py-20 bg-muted/30" ref={ref}>
       <div className="container mx-auto px-4">
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -107,8 +121,9 @@ const Contact = () => {
           </p>
         </motion.div>
 
+        {/* Content */}
         <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
-          {/* Contact Form */}
+          {/* Form */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
@@ -118,106 +133,42 @@ const Contact = () => {
             <h3 className="text-2xl font-semibold mb-6 gradient-text">
               Send me a message
             </h3>
-
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium mb-2">
-                    Name *
-                  </label>
-                  <Input
-                    id="name"
-                    name="name"
-                    type="text"
-                    required
-                    value={formData.name}
-                    onChange={handleInputChange}
-                    className="w-full"
-                    placeholder="Your name"
-                  />
+                  <label className="block text-sm font-medium mb-2">Name *</label>
+                  <Input name="name" required value={formData.name} onChange={handleInputChange} placeholder="Your name" />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium mb-2">
-                    Email *
-                  </label>
-                  <Input
-                    id="email"
-                    name="email"
-                    type="email"
-                    required
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    className="w-full"
-                    placeholder="your.email@example.com"
-                  />
+                  <label className="block text-sm font-medium mb-2">Email *</label>
+                  <Input name="email" type="email" required value={formData.email} onChange={handleInputChange} placeholder="your@email.com" />
                 </div>
               </div>
-
               <div>
-                <label htmlFor="subject" className="block text-sm font-medium mb-2">
-                  Subject *
-                </label>
-                <Input
-                  id="subject"
-                  name="subject"
-                  type="text"
-                  required
-                  value={formData.subject}
-                  onChange={handleInputChange}
-                  className="w-full"
-                  placeholder="What's this about?"
-                />
+                <label className="block text-sm font-medium mb-2">Subject *</label>
+                <Input name="subject" required value={formData.subject} onChange={handleInputChange} placeholder="What's this about?" />
               </div>
-
               <div>
-                <label htmlFor="message" className="block text-sm font-medium mb-2">
-                  Message *
-                </label>
-                <Textarea
-                  id="message"
-                  name="message"
-                  required
-                  value={formData.message}
-                  onChange={handleInputChange}
-                  className="w-full min-h-[120px] resize-none"
-                  placeholder="Tell me about your project or just say hello!"
-                />
+                <label className="block text-sm font-medium mb-2">Message *</label>
+                <Textarea name="message" required value={formData.message} onChange={handleInputChange} placeholder="Tell me about your project..." />
               </div>
-
-              <Button
-                type="submit"
-                disabled={isSubmitting}
-                className="btn-gradient w-full py-3"
-              >
+              <Button type="submit" disabled={isSubmitting} className="btn-gradient w-full py-3">
                 {isSubmitting ? (
-                  <motion.div
-                    animate={{ rotate: 360 }}
-                    transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-                    className="w-5 h-5 border-2 border-white border-t-transparent rounded-full"
-                  />
-                ) : (
-                  <>
-                    <Send className="w-5 h-5 mr-2" />
-                    Send Message
-                  </>
-                )}
+                  <motion.div animate={{ rotate: 360 }} transition={{ duration: 1, repeat: Infinity, ease: "linear" }} className="w-5 h-5 border-2 border-white border-t-transparent rounded-full" />
+                ) : "Send Message"}
               </Button>
             </form>
           </motion.div>
 
-          {/* Contact Information */}
+          {/* Contact Details */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.4 }}
             className="space-y-8"
           >
-            {/* Contact Details */}
             <div className="portfolio-card">
-              <h3 className="text-2xl font-semibold mb-6 gradient-text">
-                Contact Information
-              </h3>
-              
+              <h3 className="text-2xl font-semibold mb-6 gradient-text">Contact Information</h3>
               <div className="space-y-6">
                 {contactInfo.map((info, index) => (
                   <motion.a
@@ -232,7 +183,7 @@ const Contact = () => {
                       <info.icon className="w-6 h-6 text-primary" />
                     </div>
                     <div>
-                      <h4 className="font-medium text-foreground">{info.title}</h4>
+                      <h4 className="font-medium">{info.title}</h4>
                       <p className="text-sm text-muted-foreground">{info.details}</p>
                     </div>
                   </motion.a>
@@ -240,12 +191,9 @@ const Contact = () => {
               </div>
             </div>
 
-            {/* Social Links */}
+            {/* Social */}
             <div className="portfolio-card">
-              <h3 className="text-xl font-semibold mb-6 gradient-text">
-                Follow Me
-              </h3>
-              
+              <h3 className="text-xl font-semibold mb-6 gradient-text">Follow Me</h3>
               <div className="grid grid-cols-2 gap-4">
                 {socialLinks.map((social, index) => (
                   <motion.a
@@ -264,24 +212,6 @@ const Contact = () => {
                 ))}
               </div>
             </div>
-
-            {/* Call to Action */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: 1 }}
-              className="portfolio-card bg-gradient-to-br from-primary/5 to-secondary/5"
-            >
-              <h3 className="text-xl font-semibold mb-4 gradient-text">
-                Let's Work Together
-              </h3>
-              <p className="text-muted-foreground mb-4">
-                I'm always open to discussing new opportunities and exciting projects.
-              </p>
-              <Button className="btn-outline-glow">
-                Schedule a Call
-              </Button>
-            </motion.div>
           </motion.div>
         </div>
       </div>
