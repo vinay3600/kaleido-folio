@@ -10,49 +10,49 @@
   :root {
     /* Core Background & Text */
     --background: 255 255 255;
-    --foreground: 15 23 42;
+    --foreground: 30 41 59; /* Professional dark slate */
     
     /* Card System */
     --card: 255 255 255;
-    --card-foreground: 15 23 42;
+    --card-foreground: 30 41 59; /* Professional dark slate */
     --card-border: 226 232 240;
     
-    /* Brand Colors - Blue to Purple Gradient Theme */
-    --primary: 59 130 246; /* Blue-500 */
+    /* Brand Colors - Professional Blue Theme */
+    --primary: 37 99 235; /* Professional blue */
     --primary-foreground: 255 255 255;
-    --primary-glow: 147 197 253; /* Blue-300 */
+    --primary-glow: 59 130 246; /* Lighter blue */
     
-    --secondary: 139 92 246; /* Violet-500 */
+    --secondary: 71 85 105; /* Professional slate */
     --secondary-foreground: 255 255 255;
-    --secondary-glow: 196 181 253; /* Violet-300 */
+    --secondary-glow: 100 116 139; /* Lighter slate */
     
     /* Accent Colors */
-    --accent: 236 254 255; /* Cyan-50 */
-    --accent-foreground: 15 23 42;
+    --accent: 248 250 252; /* Very light slate */
+    --accent-foreground: 30 41 59; /* Professional dark slate */
     
     /* Utility Colors */
-    --muted: 248 250 252; /* Slate-50 */
-    --muted-foreground: 100 116 139; /* Slate-500 */
+    --muted: 248 250 252; /* Light background */
+    --muted-foreground: 71 85 105; /* Professional medium slate */
     
-    --border: 226 232 240; /* Slate-200 */
-    --input: 241 245 249; /* Slate-100 */
-    --ring: 59 130 246; /* Blue-500 */
+    --border: 226 232 240; /* Light border */
+    --input: 241 245 249; /* Input background */
+    --ring: 37 99 235; /* Professional blue focus ring */
     
     /* Success & Error */
-    --success: 34 197 94; /* Green-500 */
+    --success: 21 128 61; /* Professional green */
     --success-foreground: 255 255 255;
-    --destructive: 239 68 68; /* Red-500 */
+    --destructive: 220 38 38; /* Professional red */
     --destructive-foreground: 255 255 255;
     
-    /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)));
+    /* Gradients - Professional */
+    --gradient-primary: linear-gradient(135deg, hsl(37 99 235), hsl(71 85 105));
     --gradient-subtle: linear-gradient(180deg, hsl(var(--background)), hsl(var(--muted)));
-    --gradient-glow: linear-gradient(135deg, hsl(var(--primary-glow) / 0.1), hsl(var(--secondary-glow) / 0.1));
+    --gradient-glow: linear-gradient(135deg, hsl(37 99 235 / 0.1), hsl(71 85 105 / 0.1));
     
-    /* Shadows */
-    --shadow-elegant: 0 10px 30px -10px hsl(var(--primary) / 0.3);
-    --shadow-glow: 0 0 40px hsl(var(--primary-glow) / 0.4);
-    --shadow-card: 0 4px 6px -1px hsl(var(--foreground) / 0.1), 0 2px 4px -1px hsl(var(--foreground) / 0.06);
+    /* Shadows - Professional */
+    --shadow-elegant: 0 10px 30px -10px hsl(37 99 235 / 0.2);
+    --shadow-glow: 0 0 40px hsl(37 99 235 / 0.15);
+    --shadow-card: 0 4px 6px -1px hsl(30 41 59 / 0.1), 0 2px 4px -1px hsl(30 41 59 / 0.06);
     
     /* Animations */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -79,50 +79,50 @@
 
   .dark {
     /* Dark Mode Background & Text */
-    --background: 2 6 23; /* Slate-900 */
-    --foreground: 248 250 252; /* Slate-50 */
+    --background: 15 23 42; /* Professional dark slate */
+    --foreground: 241 245 249; /* Light text */
     
     /* Dark Card System */
-    --card: 15 23 42; /* Slate-800 */
-    --card-foreground: 248 250 252;
-    --card-border: 51 65 85; /* Slate-600 */
+    --card: 30 41 59; /* Darker slate */
+    --card-foreground: 241 245 249; /* Light text */
+    --card-border: 71 85 105; /* Medium slate border */
     
     /* Dark Brand Colors */
-    --primary: 96 165 250; /* Blue-400 */
-    --primary-foreground: 15 23 42;
-    --primary-glow: 59 130 246; /* Blue-500 */
+    --primary: 59 130 246; /* Bright blue for dark mode */
+    --primary-foreground: 15 23 42; /* Dark text on bright background */
+    --primary-glow: 37 99 235; /* Darker blue */
     
-    --secondary: 167 139 250; /* Violet-400 */
-    --secondary-foreground: 15 23 42;
-    --secondary-glow: 139 92 246; /* Violet-500 */
+    --secondary: 100 116 139; /* Professional slate */
+    --secondary-foreground: 255 255 255; /* White text */
+    --secondary-glow: 71 85 105; /* Darker slate */
     
     /* Dark Accent Colors */
-    --accent: 30 41 59; /* Slate-700 */
-    --accent-foreground: 248 250 252;
+    --accent: 51 65 85; /* Medium dark slate */
+    --accent-foreground: 241 245 249; /* Light text */
     
     /* Dark Utility Colors */
-    --muted: 30 41 59; /* Slate-700 */
-    --muted-foreground: 148 163 184; /* Slate-400 */
+    --muted: 51 65 85; /* Medium dark slate */
+    --muted-foreground: 148 163 184; /* Medium light slate */
     
-    --border: 51 65 85; /* Slate-600 */
-    --input: 30 41 59; /* Slate-700 */
-    --ring: 96 165 250; /* Blue-400 */
+    --border: 71 85 105; /* Medium slate border */
+    --input: 51 65 85; /* Input background */
+    --ring: 59 130 246; /* Bright blue focus ring */
     
     /* Dark Success & Error */
-    --success: 74 222 128; /* Green-400 */
-    --success-foreground: 15 23 42;
-    --destructive: 248 113 113; /* Red-400 */
-    --destructive-foreground: 15 23 42;
+    --success: 34 197 94; /* Bright green for dark mode */
+    --success-foreground: 15 23 42; /* Dark text */
+    --destructive: 248 113 113; /* Bright red for dark mode */
+    --destructive-foreground: 15 23 42; /* Dark text */
     
-    /* Dark Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)));
+    /* Dark Gradients - Professional */
+    --gradient-primary: linear-gradient(135deg, hsl(59 130 246), hsl(100 116 139));
     --gradient-subtle: linear-gradient(180deg, hsl(var(--background)), hsl(var(--muted)));
-    --gradient-glow: linear-gradient(135deg, hsl(var(--primary-glow) / 0.2), hsl(var(--secondary-glow) / 0.2));
+    --gradient-glow: linear-gradient(135deg, hsl(59 130 246 / 0.2), hsl(100 116 139 / 0.2));
     
-    /* Dark Shadows */
-    --shadow-elegant: 0 10px 30px -10px hsl(var(--primary) / 0.4);
-    --shadow-glow: 0 0 40px hsl(var(--primary-glow) / 0.3);
-    --shadow-card: 0 4px 6px -1px hsl(var(--foreground) / 0.1), 0 2px 4px -1px hsl(var(--foreground) / 0.06);
+    /* Dark Shadows - Professional */
+    --shadow-elegant: 0 10px 30px -10px hsl(59 130 246 / 0.3);
+    --shadow-glow: 0 0 40px hsl(59 130 246 / 0.25);
+    --shadow-card: 0 4px 6px -1px hsl(0 0 0 / 0.3), 0 2px 4px -1px hsl(0 0 0 / 0.2);
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
